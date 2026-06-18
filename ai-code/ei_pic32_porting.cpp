@@ -62,6 +62,6 @@ uint64_t ei_read_timer_us() {
 
 extern "C" void _mon_putc(char c) {
     // UART1が空くまで待ってから1文字送信
-    while(!UART1_WriteIsBusy()); 
+    while(UART1_WriteIsBusy()); 
     UART1_Write(&c, 1);
 }
